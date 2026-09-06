@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f9dfe8" />
+    <meta
+      name="description"
+      content="为中文用户精选日本AV、高清封面、主观视角体验和高颜值女优推荐，聚合热门片源、在线观看入口与下载工具导航。"
+    />
+    <meta
+      name="keywords"
+      content="日本AV精选, 日本AV推荐, 中文AV, 高颜值女优, 主观视角AV, 无码流出推荐, AV在线观看, 日本片导航, 日本色情片精选, AV片源, 日本女优推荐, 中文网站AV推荐"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="googlebot" content="index,follow" />
+    <meta property="og:site_name" content="日本AV精选" />
+    <meta property="og:title" content="日本AV精选推荐｜高颜值主观视角片源导航" />
+    <meta property="og:description" content="中文用户专用的日本AV精选站，聚合高颜值女优、主观视角体验和热门片源入口，适合追求高清封面与优质观看体验的观众。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:image" content="./cover-images/midv-908.jpg" />
+    <title>日本AV精选推荐｜高颜值主观视角片源导航</title>
+    <style>
+      :root {
+        --bg: #fff8fa;
+        --panel: rgba(255, 255, 255, 0.78);
+        --panel-strong: #fff;
+        --primary: #f2a7b7;
+        --primary-deep: #e98ca7;
+        --secondary: #ffd7c2;
+        --accent: #f7c9d6;
+        --text: #44353d;
+        --muted: #7d665f;
+        --shadow: 0 20px 45px rgba(214, 130, 170, 0.18);
+        --border: rgba(218, 170, 190, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 214, 226, 0.9), transparent 20%),
+          radial-gradient(circle at 80% 0%, rgba(255, 233, 199, 0.8), transparent 16%),
+          linear-gradient(180deg, #fff8fa 0%, #fffaf6 100%);
+        color: var(--text);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 24px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 248, 250, 0.72);
+        border-bottom: 1px solid rgba(242, 167, 183, 0.18);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 74px;
+        gap: 16px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), #f8d8c1);
+        color: white;
+        box-shadow: 0 12px 30px rgba(242, 167, 183, 0.35);
+        font-size: 1.2rem;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.96rem;
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: 0.25s ease;
+      }
+
+      .nav a:hover {
+        background: rgba(242, 167, 183, 0.12);
+        color: var(--text);
+      }
+
+      .tool-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+        color: white;
+        box-shadow: 0 18px 30px rgba(233, 140, 167, 0.25);
+      }
+
+      .tool-button:hover,
+      .video-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(242, 167, 183, 0.12);
+        color: var(--primary-deep);
+        font-weight: 700;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin: 26px 0 18px;
+        gap: 14px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        margin: 0;
+        letter-spacing: -0.04em;
+      }
+
+      .section-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .page-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.7fr);
+        gap: 22px;
+        align-items: start;
+        padding-top: 8px;
+      }
+
+      .page-main {
+        min-width: 0;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 94px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-self: start;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 4px;
+        scrollbar-width: thin;
+      }
+
+      .summary-strip {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .summary-strip > .panel {
+        min-height: 0;
+      }
+
+      .video-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 4px;
+      }
+
+      .video-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.72);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 32px rgba(230, 161, 181, 0.12);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .video-cover-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .video-card:hover .video-cover {
+        transform: scale(1.04);
+      }
+
+      .video-overlay {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+      }
+
+      .video-id {
+        display: inline-flex;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.18);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .video-body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .video-title {
+        margin: 0;
+        color: var(--text);
+        font-size: clamp(1.18rem, 2vw, 2rem);
+        line-height: 1.6;
+        word-break: break-all;
+      }
+
+      .video-link {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0.8rem 1.2rem;
+        border-radius: 999px;
+        background: rgba(242, 167, 183, 0.1);
+        color: var(--primary-deep);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 20px;
+        margin: 0;
+      }
+
+      .panel {
+        background: rgba(255,255,255,0.78);
+        border: 1px solid var(--border);
+        border-radius: 26px;
+        box-shadow: 0 18px 34px rgba(228, 173, 190, 0.12);
+        padding: 24px;
+      }
+
+      .good-card {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+      }
+
+      .good-image-wrap {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(242, 167, 183, 0.38);
+        background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,244,247,0.9));
+      }
+
+      .good-image {
+        width: 100%;
+        aspect-ratio: 1.22;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .good-image:hover {
+        transform: scale(1.02);
+      }
+
+      .good-qr {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px;
+        border-radius: 22px;
+        background: rgba(252, 244, 247, 0.9);
+        border: 1px solid rgba(242, 167, 183, 0.26);
+      }
+
+      .good-qr img {
+        width: 128px;
+        height: 128px;
+        border-radius: 18px;
+        background: white;
+        padding: 8px;
+      }
+
+      .good-qr p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.95rem;
+      }
+
+      .tool-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 18px;
+        min-height: 100%;
+      }
+
+      .tool-box h3 {
+        margin: 0;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+      }
+
+      .tool-desc {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .tool-button {
+        width: 100%;
+      }
+
+      .footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      .hidden-mobile {
+        display: block;
+      }
+
+      @media (max-width: 960px) {
+        .page-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          order: 2;
+          max-height: none;
+          overflow: visible;
+          padding-right: 0;
+        }
+
+        .summary-strip {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .video-card {
+          padding: 14px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          flex-direction: column;
+          justify-content: center;
+          padding: 12px 0 16px;
+        }
+
+        .nav {
+          justify-content: center;
+        }
+
+        .panel {
+          padding: 18px;
+          border-radius: 22px;
+        }
+
+        .good-qr {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hidden-mobile {
+          display: none;
+        }
+
+        .video-title {
+          font-size: 1.12rem;
+        }
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-4deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(-2deg);
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "日本AV精选推荐",
+        "description": "为中文用户精选日本AV、主观视角体验和高颜值女优推荐，聚合热门片源入口与高清视频导航。",
+        "inLanguage": "zh-CN",
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "MIDV-908", "url": "https://missav.ws/dm55/cn/midv-908-uncensored-leak" },
+            { "@type": "ListItem", "position": 2, "name": "MIDV-305", "url": "https://missav.ws/dm62/cn/midv-305-uncensored-leak" },
+            { "@type": "ListItem", "position": 3, "name": "IPZZ-145", "url": "https://missav.ws/dm27/cn/ipzz-145-uncensored-leak" },
+            { "@type": "ListItem", "position": 4, "name": "SONE-418", "url": "https://missav.ws/dm54/cn/sone-418-uncensored-leak" },
+            { "@type": "ListItem", "position": 5, "name": "STARS-794", "url": "https://missav.ws/dm13/cn/stars-794-uncensored-leak" }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand" aria-label="AV视频精选">
+          <span class="brand-mark">★</span>
+          <span>AV视频精选</span>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <a href="#videos">精选视频</a>
+          <a href="#share">好物分享</a>
+          <a href="#tool">下载工具</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <div class="page-main">
+        <section id="videos" aria-labelledby="video-title">
+          <div class="section-header">
+            <h2 id="video-title">精选视频</h2>
+          </div>
+          <div class="video-list" id="videoGrid" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="侧边入口模块">
+        <section class="summary-strip" aria-label="活动入口模块">
+          <div id="share" class="panel">
+            <div class="section-header" style="margin-top:0; margin-bottom: 16px;">
+              <h2>好物分享</h2>
+            </div>
+            <div class="good-card">
+              <div class="good-image-wrap">
+                <a id="goodLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="打开商品详情">
+                  <img id="goodImage" class="good-image" src="" alt="商品推荐图片" />
+                </a>
+              </div>
+              <div id="goodQrWrap" class="good-qr hidden-mobile" aria-live="polite">
+                <img id="goodQr" src="" alt="商品二维码" />
+                <p>
+                  点击图片可在电脑上查看商品，或在手机上用京东 App 扫码查看。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="tool" class="panel">
+            <div class="tool-box">
+              <h3>视频下载工具</h3>
+              <p class="tool-desc">
+                免费便捷的视频下载支持
+              </p>
+              <a
+                class="tool-button"
+                href="https://freefree-software.github.io/missav-downloader/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="打开视频下载工具"
+              >
+                获取视频下载工具
+              </a>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script>
+      const VIDEO_DATA = [
+        {"id":"midv-908","title":"MIDV-908 当我和青梅竹马结婚的时候……从小就认识的澪（继妹）每天都会勾引我、捉弄我，无论我射精多少次，我都感觉她会射精用性来欺负我……没错，今晚也是。 石川澪","url":"https://missav.ws/dm55/cn/midv-908-uncensored-leak"},
+        {"id":"midv-305","title":"MIDV-305 与石川澪的甜蜜性爱让我们一起生活在世界上最幸福的地方！","url":"https://missav.ws/dm62/cn/midv-305-uncensored-leak"},
+        {"id":"ipzz-145","title":"IPZZ-145 与非常爱我的鸡巴以至于无法停止吸吮的穗香住在一起的口交 古川穗香 - 古川ほのか","url":"https://missav.ws/dm27/cn/ipzz-145-uncensored-leak"},
+        {"id":"sone-418","title":"SONE-418 为了您最好的自慰，白神彩香可爱地看著您，刺激您的阴茎，并微笑著一次又一次地接受射精......大量面部射液微笑自慰支持 - 白上咲花","url":"https://missav.ws/dm54/cn/sone-418-uncensored-leak"},
+        {"id":"stars-794","title":"STARS-794 我想要孩子，我想要中出孩子-让我的 6 岁家庭教师说脏话“喜欢”我 宫岛美美 Miyajima - 宫岛芽衣","url":"https://missav.ws/dm13/cn/stars-794-uncensored-leak"},
+        {"id":"ssis-946","title":"SSIS-946 Y●uT●uBe/T●it●er/I●st●gr●m/T●kT●k SNS 粉丝总数：90 万 网红模特儿“Riri Nanatsumori”将帮你打飞机 - 七森莉莉","url":"https://missav.ws/dm49/cn/ssis-946-uncensored-leak"},
+        {"id":"sone-111","title":"SONE-111 为了您最好的自慰，Marin Mita 可爱地看著您，刺激您的鸡巴，并微笑著一次又一次地接受射精......大量面部射液微笑自慰支持 - 三田真铃","url":"https://missav.ws/dm29/cn/sone-111-uncensored-leak"},
+        {"id":"fsdss-525","title":"FSDSS-525 我更爱你......在约会时双手抚摸，分层的嘴唇，心脏和身体感觉爱性爱 Ran Kamiki - 神木兰","url":"https://missav.ws/cn/fsdss-525-uncensored-leak"},
+        {"id":"mida-349","title":"MIDA-349 “用手摩擦阴茎不算出轨吗？”我在旅馆住了三个晚上，女朋友的妹妹给我做了一次恶魔般的手淫，让我射了18次精，最后被戴绿帽了。远野花铃 - 塔乃花铃","url":"https://missav.ws/cn/mida-349-uncensored-leak"},
+        {"id":"cjod-149","title":"CJOD-149 W 屁股肛门充分展示反向 3P 桩驾驶中出 Yu Shinoda Aya Sazanami - 筱田优","url":"https://missav.ws/dm44/cn/cjod-149-uncensored-leak"},
+        {"id":"ssis-778","title":"SSIS-778 因为我即将退休...三上悠亚将成为你的女朋友，每天为你提供终极爱情自慰支持，提供你喜欢的 POV 视频","url":"https://missav.ws/dm2/cn/ssis-778-uncensored-leak"},
+        {"id":"ssis-401","title":"SSIS-401 Nanami Ogura，第一次能够做到的年长女友向早泄的我教SEX的最好的同居生活 - 小仓七海","url":"https://missav.ws/dm66/cn/ssis-401-uncensored-leak"},
+        {"id":"sone-642","title":"SONE-642 我愛你，我愛你，我愛你，我愛你，我愛你。川北彩香會寵愛你的陰莖，並會盡她所能幫助你像真正的情人一樣射精。 - 河北彩花","url":"https://missav.ws/dm2/sone-642-uncensored-leak"},
+        {"id":"ssis-721","title":"SSIS-721 關起門來近距離給你NTR（戴綠帽） 川北綾香 - 河北彩花","url":"https://missav.ws/dm58/ssis-721-uncensored-leak"},
+        {"id":"ssis-440","title":"SSIS-440 4K拍攝視頻完全主觀手淫支持Saika Kawakita - 河北彩花","url":"https://missav.ws/dm66/ssis-440-uncensored-leak"},
+        {"id":"ipzz-900","title":"IPZZ-900 我请求温柔雅致的澪老师教我性知识，没想到她竟然是一位好色、容易达到高潮、性生活混乱的老师。一个只属于你和澪老师的世界，完全沉浸式且主观。花咲澪","url":"https://missav.ws/cn/ipzz-900-uncensored-leak"}
+      ];
+
+      const COMMODITY_DATA = [
+        {"img":"1.jpg","url":"https://u.jd.com/xr8gZDQ"},
+        {"img":"2.jpg","url":"https://u.jd.com/x68SZpx"},
+        {"img":"3.jpg","url":"https://u.jd.com/x681qot"},
+        {"img":"4.jpg","url":"https://u.jd.com/x18yDDN"},
+        {"img":"5.jpg","url":"https://u.jd.com/xg8SfM8"},
+        {"img":"6.jpg","url":"https://u.jd.com/xg8OeJ8"},
+        {"img":"7.jpg","url":"https://u.jd.com/xr8rUA6"},
+        {"img":"8.jpg","url":"https://u.jd.com/xG8a0EH"},
+        {"img":"9.jpg","url":"https://u.jd.com/xr88930"},
+        {"img":"10.jpg","url":"https://u.jd.com/xa81rke"},
+        {"img":"11.jpg","url":"https://u.jd.com/xD8v6aI"},
+        {"img":"12.jpg","url":"https://u.jd.com/xD82hTB"},
+        {"img":"13.jpg","url":"https://u.jd.com/xg8DYds"}
+      ];
+
+      const videoGrid = document.getElementById('videoGrid');
+      const goodImage = document.getElementById('goodImage');
+      const goodLink = document.getElementById('goodLink');
+      const goodQr = document.getElementById('goodQr');
+      const goodQrWrap = document.getElementById('goodQrWrap');
+
+      const shuffleArray = (items) => {
+        const array = [...items];
+        for (let i = array.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      };
+
+      const renderVideos = (videos) => {
+        videoGrid.innerHTML = '';
+        videos.forEach((video) => {
+          const article = document.createElement('article');
+          article.className = 'video-card';
+
+          const coverUrl = `./cover-images/${video.id}.jpg`;
+          const cardHTML = `
+            <a href="${video.url}" target="_blank" rel="noopener noreferrer" aria-label="打开视频: ${video.title}">
+              <div class="video-cover-wrap">
+                <img class="video-cover" src="${coverUrl}" alt="${video.title}" loading="lazy" />
+                <div class="video-overlay">
+                  <span class="video-id">${video.id}</span>
+                </div>
+              </div>
+            </a>
+            <div class="video-body">
+              <h3 class="video-title">${video.title}</h3>
+              <a class="video-link" href="${video.url}" target="_blank" rel="noopener noreferrer">打开观看 →</a>
+            </div>
+          `;
+
+          article.innerHTML = cardHTML;
+          videoGrid.appendChild(article);
+        });
+      };
+
+      const renderGood = (good, index = 0) => {
+        const imgPath = `./commodity-images/${good.img}`;
+        goodImage.src = imgPath;
+        goodImage.alt = `商品推荐 ${index + 1}`;
+        goodLink.href = good.url;
+
+        if (window.innerWidth >= 768) {
+          goodQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(good.url)}`;
+          goodQrWrap.style.display = 'flex';
+        } else {
+          goodQrWrap.style.display = 'none';
+        }
+      };
+
+      const initGoods = () => {
+        const mixed = shuffleArray(COMMODITY_DATA);
+        let currentIndex = 0;
+        renderGood(mixed[0], 0);
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % mixed.length;
+          renderGood(mixed[currentIndex], currentIndex);
+        }, 60000);
+      };
+
+      renderVideos(shuffleArray(VIDEO_DATA));
+      initGoods();
+
+      window.addEventListener('resize', () => {
+        const currentGood = goodLink.href;
+        if (currentGood && currentGood !== '#' && window.innerWidth >= 768) {
+          goodQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(currentGood)}`;
+          goodQrWrap.style.display = 'flex';
+        } else if (goodQrWrap) {
+          goodQrWrap.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
